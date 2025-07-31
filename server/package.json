@@ -7,8 +7,14 @@
   "type": "commonjs",
   "main": "server.js",
   "scripts": {
-    "test": "npm test",
-    "start": "node server.js"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "mig": "npx sequelize db:migrate:undo:all && npx sequelize db:migrate",
+    "seed": "npx sequelize db:seed:undo:all && npx sequelize db:seed:all",
+    "createDB": "npx sequelize db:create",
+    "dropDB": "npx sequelize db:drop",
+    "dev": "nodemon -L server.js --ignore sessions --ext js,jsx,json,css",
+    "db": "npx sequelize-cli db:drop && npx sequelize-cli db:create && npx sequelize-cli db:migrate && npx sequelize-cli db:seed:all"
   },
   "dependencies": {
     "babel": "^5.8.38",
